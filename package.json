@@ -1,8 +1,8 @@
 {
-  "name": "purchaseapp",
+  "name": "equest-reg-portal",
   "version": "1.0.0",
   "description": "First Angular 11 Project",
-  "author": "Eugene Popov metanit.com",
+  "author": "Stas Glushakov invento.by",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

@@ -1,100 +1,48 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+import {Router} from '@angular/router';
 
-class Item{
-    purchase: string;
-    done: boolean;
-    price: number;
+class User {
+    readonly _id : number;
+    readonly _login: string;
+    readonly _password: string;
 
-    constructor(purchase: string, price: number) {
-
-        this.purchase = purchase;
-        this.price = price;
-        this.done = false;
+    constructor(id : number, login: string, password: string) {
+        this._id = id;
+        this._login = login;
+        this._password = password;
     }
 }
 
 @Component({
-    selector: 'purchase-app',
-    template: `<div class="page-header">
-        <h1> Список покупок </h1>
-    </div>
-    <div class="panel">
-        <div class="form-inline">
-            <div class="form-group">
-                <div class="col-md-8">
-                    <input class="form-control" [(ngModel)]="text" placeholder = "Название" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <input type="number" class="form-control" [(ngModel)]="price" placeholder="Цена" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-8">
-                    <button class="btn btn-default" (click)="addItem(text, price)">Добавить</button>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-8">
-                    <button class="btn btn-default" (click)="deleteItem()">Удалить выделенное</button>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-8">
-                    <button class="btn btn-default" (click)="selectAllItems()">Выделить всё</button>
-                </div>
-            </div>
+    selector: 'home-app',
+    template: `        
+        <div class="text-center">
+        <h1>Портал учета заявок</h1>
+            
+        <div class="container-fluid">
+            <a routerLink="/login">login   </a>
+            <a routerLink="/requests">requests   </a>
+            <a routerLink="/requests/create">create requests</a>
         </div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Предмет</th>
-                    <th>Цена</th>
-                    <th>Куплено</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of items">
-                    <td>{{item.purchase}}</td>
-                    <td>{{item.price}}</td>
-                    <td><input type="checkbox" [(ngModel)]="item.done" /></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>`
+
+        <router-outlet></router-outlet>
+
+    <button (click)="logOut()">Log out</button>
+    </div>
+    
+    
+    
+    `
 })
+
 export class AppComponent {
-    text: string;
-    price: number = 0;
+    user : User;
 
-    items: Item[] =
-        [
-            { purchase: "Хлеб", done: false, price: 15.9 },
-            { purchase: "Масло", done: false, price: 60 },
-            { purchase: "Картофель", done: true, price: 22.6 },
-            { purchase: "Сыр", done: false, price:310 }
-        ];
+    ngOnInit() {this.user = null}
+    constructor(private router: Router){}
 
-    addItem(text: string, price: number): void {
-        if(text==null || text.trim()=="" || price==null)
-            return;
-        this.items.push(new Item(text, price));
+    logOut(){
+        this.user = null;
+        this.router.navigate(['']);
     }
-
-    deleteItem(): void {
-        for (let i = 0; i < this.items.length; i++){
-            if (this.items[i].done === true){
-                this.items.splice(i,1)
-                i--
-            }
-        }
-    }
-
-    selectAllItems(): void {
-        for (let i = 0; i < this.items.length; i++){
-            this.items[i].done = true
-        }
-    }
-
 }
