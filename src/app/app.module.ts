@@ -4,10 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import {Routes, RouterModule} from '@angular/router';
 
 import { FormsModule }   from '@angular/forms';
-import { AppComponent }   from './app.component';
-import { LoginComponent }   from './login.component';
-import { RequestsComponent }   from './requests.component';
-import { CreateRequestsComponent }   from './createRequests.component';
+import { AppComponent }   from './components/app.component';
+import { LoginComponent }   from './components/login.component';
+import { RequestsComponent }   from './components/requests.component';
+import { CreateRequestsComponent }   from './components/createRequests.component';
+import {DataService} from './services/data.service';
+
 
 // определение маршрутов
 const appRoutes: Routes =[
@@ -21,6 +23,7 @@ const appRoutes: Routes =[
 @NgModule({
     imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
     declarations: [ AppComponent , LoginComponent, RequestsComponent, CreateRequestsComponent ],
-    bootstrap:    [ AppComponent ]
+    bootstrap:    [ AppComponent ],
+    providers: [DataService]
 })
 export class AppModule { }

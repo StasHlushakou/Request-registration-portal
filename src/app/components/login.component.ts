@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
     <div class="container">
         
         <div class="row">
-            <input class="form-control " [(ngModel)]="login" placeholder = "Логин" />
+            <input class="form-control" [(ngModel)]="login" placeholder = "Логин" />
         </div>
 
         <div class="row">

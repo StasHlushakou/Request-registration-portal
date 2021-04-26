@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import {DataService} from '../services/data.service';
 
 @Component({
 
@@ -32,19 +33,21 @@ import {Router} from '@angular/router';
     `
 })
 export class CreateRequestsComponent {
-    constructor(private router: Router){}
+    constructor(private router: Router, private dataService: DataService){}
 
     theme: string;
     description: string;
 
 
     createRequest(theme: string, description: string){
-        alert(theme + ' ' + description)
+        this.dataService.addRecord(1,theme, description)
         this.router.navigate(['/requests']);
     }
 
     back(){
         this.router.navigate(['/requests']);
     }
+
+
 
 }
