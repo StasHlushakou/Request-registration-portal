@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
-import {DataService} from '../services/data.service';
-import {Record} from "../Record";
+import {Router, ActivatedRoute, ParamMap} from '@angular/router';
+import {RequestService} from '../services/request.service';
+import {Request} from "../Request";
 
 @Component({
 
@@ -20,10 +20,10 @@ import {Record} from "../Record";
                 <th>Тема</th>
                 <th>Описание</th>
             </tr>
-            <tr *ngFor="let rec of records" (click)="openRecord(rec._id)">
-                <td>{{rec._date}}</td>
-                <td>{{rec._theme}}</td>
-                <td><button class="btn btn-default" (click)="deleteRequest(rec._id)">Удалить заявку</button></td>
+            <tr *ngFor="let req of requests" (click)="openRecord(req._id)">
+                <td>{{req._date}}</td>
+                <td>{{req._theme}}</td>
+                <td><button class="btn btn-default" (click)="deleteRequest(req._id)">Удалить заявку</button></td>
             </tr>
             </thead>
             <tbody>
@@ -40,10 +40,10 @@ import {Record} from "../Record";
 
 })
 export class RequestsComponent {
-    constructor(private router: Router, private dataService: DataService){}
+    constructor(private router: Router){}
 
-    records: Record[] = [];
-
+    requests: Request[] = [];
+    userId: number;
 
     addRequest(){
         this.router.navigate(['/requests/create']);
@@ -52,13 +52,14 @@ export class RequestsComponent {
     deleteRequest(requestId: number){
         let isdelete = confirm(`Вы уверены, что хотите удалить заявку № ${requestId}?`)
         if (isdelete) {
-            this.dataService.removeRecordById(requestId);
-            this.records = this.dataService.getRecordsByUserId(1);
+            RequestService.removeRecordById(requestId);
+            this.requests = RequestService.getRecordsByUserId(this.userId);
         }
     }
 
     ngOnInit(){
-        this.records = this.dataService.getRecordsByUserId(1);
+        this.userId = JSON.parse(sessionStorage.getItem("User"))._id;
+        this.requests = RequestService.getRecordsByUserId(this.userId);
     }
 
     openRecord(recordId: number){

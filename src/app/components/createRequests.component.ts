@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
-import {DataService} from '../services/data.service';
+import {RequestService} from '../services/request.service';
 
 @Component({
 
@@ -33,19 +33,24 @@ import {DataService} from '../services/data.service';
     `
 })
 export class CreateRequestsComponent {
-    constructor(private router: Router, private dataService: DataService){}
+    constructor(private router: Router){}
 
+    userId: number;
     theme: string;
     description: string;
 
 
     createRequest(theme: string, description: string){
-        this.dataService.addRecord(1,theme, description)
+        RequestService.addRequest(this.userId,theme, description);
         this.router.navigate(['/requests']);
     }
 
     back(){
         this.router.navigate(['/requests']);
+    }
+
+    ngOnInit(){
+        this.userId = JSON.parse(sessionStorage.getItem("User"))._id;
     }
 
 

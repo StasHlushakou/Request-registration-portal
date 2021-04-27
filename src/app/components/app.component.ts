@@ -1,6 +1,5 @@
-import { Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {User} from '../User'
 
 
 @Component({
@@ -13,11 +12,14 @@ import {User} from '../User'
             <a routerLink="/login">login   </a>
             <a routerLink="/requests">requests   </a>
             <a routerLink="/requests/create">create requests</a>
-        </div>
 
+        </div>
+            
+            
         <router-outlet></router-outlet>
 
-    <button (click)="logOut()">Log out</button>
+            
+            
     </div>
     
     
@@ -26,13 +28,10 @@ import {User} from '../User'
 })
 
 export class AppComponent {
-    user : User;
-
-    ngOnInit() {this.user = null}
     constructor(private router: Router){}
 
     logOut(){
-        this.user = null;
-        this.router.navigate(['']);
+        sessionStorage.clear();
+        this.router.navigate(['/login']);
     }
 }

@@ -1,4 +1,4 @@
-export class Record {
+export class Request {
     readonly _id : number;
     readonly _userId: number;
     readonly _theme: string;
