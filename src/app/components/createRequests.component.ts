@@ -4,7 +4,7 @@ import {RequestService} from '../services/request.service';
 
 @Component({
 
-    selector: 'requests-app',
+    selector: 'create-requests-app',
     template: `<div class="page-header text-center">
         <h1> Страница создания заявок </h1>
     </div>
@@ -24,8 +24,9 @@ import {RequestService} from '../services/request.service';
         
         <div class="row">
             <button class="btn btn-default" (click)="createRequest(theme, description)">Создать запрос</button>
-            <button class="btn btn-default" (click)="back()">Назад</button>
         </div>
+
+        <button class="btn btn-default" (click)="back()">Назад</button>
         
     </div>
     

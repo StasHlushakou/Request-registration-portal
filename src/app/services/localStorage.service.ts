@@ -46,7 +46,15 @@ export class LocalStorageService{
         }
     }
 
-
+    static IsExistUserWithLogin(login: string): boolean {
+        let userList: User[] =  LocalStorageService.getUsersFromStorage();
+        for (let i =0; i < userList.length; i++){
+            if (userList[i]._login == login){
+                return  true;
+            }
+        }
+        return false;
+    }
 
     static getUserByLoginPassword(login: string, password: string): User {
         let userList: User[] =  LocalStorageService.getUsersFromStorage();
@@ -85,6 +93,14 @@ export class LocalStorageService{
 
     static removeRequestById(recordId: number): void{
         LocalStorageService.removeRequestFromStorageById(recordId);
+    }
+
+    static getRequestById(userId: number, recordId: number): Request{
+        let requests = LocalStorageService.getRequestByUserId(userId);
+        for (let i = 0; i < requests.length; i++){
+            if (requests[i]._id == recordId) return requests[i];
+        }
+        return null;
     }
 
 

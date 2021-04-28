@@ -21,4 +21,8 @@ export class RequestService{
         LocalStorageService.removeRequestById(recordId);
     }
 
+    static getRequestById(userId: number, recordId: number): Request{
+        return LocalStorageService.getRequestById(userId, recordId);
+    }
+
 }

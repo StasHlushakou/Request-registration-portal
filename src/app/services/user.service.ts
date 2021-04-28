@@ -7,7 +7,11 @@ export class UserService{
 
     constructor(private localStorageService: LocalStorageService){}
 
-    static getUserByLogin(login: string, password: string): User {
+    static IsExistUserWithLogin(login: string): boolean {
+        return LocalStorageService.IsExistUserWithLogin(login);
+    }
+
+    static getUserByLoginAndPassword(login: string, password: string): User {
         return LocalStorageService.getUserByLoginPassword(login, password);
     }
 

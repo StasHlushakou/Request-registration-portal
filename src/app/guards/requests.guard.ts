@@ -3,16 +3,16 @@ import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 
 @Injectable()
-export class LoginGuard implements CanActivate{
+export class RequestsGuard implements CanActivate{
 
     constructor(private router: Router){}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean|UrlTree>|Promise<boolean|UrlTree>|boolean|UrlTree{
 
-        if (sessionStorage.getItem("User") == null) {
+        if (sessionStorage.getItem("User") != null) {
             return true;
         } else{
-            let url: UrlTree = this.router.parseUrl('/requests');
+            let url: UrlTree = this.router.parseUrl('/login');
             return url;
         }
 
