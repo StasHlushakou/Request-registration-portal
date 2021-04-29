@@ -6,53 +6,44 @@ import {UserService} from "../services/user.service";
 @Component({
 
     selector: 'login-app',
-    template: `<div class="page-header text-center">
-        <h1> Страница логина </h1>
-    </div>
-    
-    <div class="container">
+    template: `        
+    <div class="container text-center">
 
-
-        
-        <div class="row">
-            <div class="form-group">
-                <label>Логин</label>
-                <input class="form-control" name="email" [(ngModel)]="login" #email="ngModel"
-                       required pattern="[a-zA-Z_.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}" (focus)="resetLogin()"/>
-                <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
-                    Некорректный email
-                </div>
-                <div [hidden]="!incorrectLogin" class="alert alert-danger">
-                    Пользователь с таким email уже существует.
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="form-group">
-                <label>Пароль</label>
-                <input class="form-control" name="pass" [(ngModel)]="password" #pass="ngModel"
-                       required pattern="[a-zA-Z0-9]*" (focus)="resetPass()"/>
-                <div [hidden]="pass.valid || pass.untouched" class="alert alert-danger">
-                    Пароль может содержать большие и малые буквы латинского алфавита, цифры.
-                </div>
-                <div [hidden]="!incorrectPassword" class="alert alert-danger">
-                    Неверный пароль.
-                </div>
-            </div>
-        </div>
-        
         <div class="form-group">
+            
+            <label>Логин</label>
+            
+            <input class="form-control" name="email" [(ngModel)]="login" #email="ngModel"
+                   required pattern="[a-zA-Z_.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}" (focus)="resetLogin()"/>
+            
+            <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+                Некорректный email</div>
+            
+            <div [hidden]="!incorrectLogin" class="alert alert-danger">Пользователь с таким email уже существует.</div>
+
+            <label>Пароль</label>
+            
+            <input class="form-control" name="pass" [(ngModel)]="password" #pass="ngModel"
+                   required pattern="[a-zA-Z0-9]*" (focus)="resetPass()"/>
+            
+            <div [hidden]="pass.valid || pass.untouched" class="alert alert-danger">
+                Пароль может содержать большие и малые буквы латинского алфавита, цифры.</div>
+            
+            <div [hidden]="!incorrectPassword" class="alert alert-danger">Неверный пароль.</div>
+
             <div class="row">
-                <button [disabled]="email.invalid || pass.invalid"
-                        class="btn btn-default" (click)="signIn(login, password)">Войти</button>
+                <div class="col">
+                    <button class="btn btn-primary" [disabled]="email.invalid || pass.invalid"
+                            (click)="signIn(login, password)">Войти</button>
+                </div>
+
+                <div class="col">
+                    <button class="btn btn-primary" [disabled]="email.invalid || pass.invalid"
+                            (click)="addUser(login, password)">Зарегистрироваться</button>
+                </div>
             </div>
-            <div class="row">
-                <button [disabled]="email.invalid || pass.invalid"
-                        class="btn btn-default" (click)="addUser(login, password)">Зарегистрироваться</button>
-            </div>
+            
         </div>
-        
     </div>`
 
 

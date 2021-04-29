@@ -18,7 +18,6 @@ export class LocalStorageService{
         localStorage.setItem("Users", JSON.stringify(users));
     }
 
-
     private static getRequestFromStorage(): Request[]{
         let requests: Request[] =  JSON.parse( localStorage.getItem("Requests") );
         if (requests == null){
@@ -45,6 +44,9 @@ export class LocalStorageService{
             }
         }
     }
+
+
+
 
     static IsExistUserWithLogin(login: string): boolean {
         let userList: User[] =  LocalStorageService.getUsersFromStorage();
@@ -88,7 +90,12 @@ export class LocalStorageService{
     static addRequest(userId: number, theme: string, description: string): void {
         let requestList: Request[] = LocalStorageService.getRequestFromStorage();
         let date = new Date();
-        LocalStorageService.addRequestToStorage(new Request(requestList.length +1, userId, theme, description, date.getDate()+"."+(date.getMonth()+1)+"."+date.getFullYear()));
+        if (requestList.length == 0){
+            LocalStorageService.addRequestToStorage(new Request(1, userId, theme, description, date.getDate()+"."+(date.getMonth()+1)+"."+date.getFullYear()));
+        } else {
+            LocalStorageService.addRequestToStorage(new Request(requestList[(requestList.length - 1)]._id +1, userId, theme, description, date.getDate()+"."+(date.getMonth()+1)+"."+date.getFullYear()));
+        }
+
     }
 
     static removeRequestById(recordId: number): void{

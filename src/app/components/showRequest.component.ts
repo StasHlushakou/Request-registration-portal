@@ -6,30 +6,42 @@ import {Request} from "../Request";
 @Component({
 
     selector: 'show-request-app',
-    template: `<div class="page-header text-center">
-        <h1> Страница просмотра заявки </h1>
+    template: `
+
+        
+    <div class="container text-center">
+
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>Дата</th>
+                <th class="text-left">{{request._date}}</th>
+            </tr>
+            <tr>
+                <th>Тема</th>
+                <th class="text-left">{{request._theme}}</th>
+            </tr>
+            <tr>
+                <th>Описание</th>
+                <th class="text-left">{{request._description}}</th>
+            </tr>
+
+        </table>
+
+        <div class="row">
+            <div class="col text-left">
+                <button class="btn btn-primary" (click)="deleteRequest(request._id)">Удалить заявку</button>
+            </div>
+
+            <div class="col text-right">
+                <button class="btn btn-primary" (click)="back()">Назад</button>
+            </div>
+        </div>
+        
+
+        
     </div>
-
-
-
-
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Дата</th>
-            <th>Тема</th>
-            <th>Описание</th>
-        </tr>
-        <tr>
-            <td>{{request._date}}</td>
-            <td>{{request._theme}}</td>
-            <td>{{request._description}}</td>
-            <td><button class="btn btn-default" (click)="deleteRequest(request._id)">Удалить заявку</button></td>
-        </tr>
-        </thead>
-        <td><button class="btn btn-default" (click)="back()">Назад</button></td>
-    </table>
-    
+        
+        
     
     `
 })

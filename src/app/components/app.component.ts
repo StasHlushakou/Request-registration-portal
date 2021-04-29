@@ -7,31 +7,30 @@ import {Rate} from "../Rate";
 @Component({
     selector: 'home-app',
     template: `
-        <div class="page-header text-center">
-
-            <div class="container">
-                <h1>Портал учета заявок</h1>
-        
-                <table class="table table-striped">
-                    <tr>
-                        <th>{{rate.Cur_OfficialRate}}</th>
-                        <th><button class="btn btn-default col" (click)="logOut()">Выйти</button></th>
-                    </tr>
-                </table>
-                    
-                <div class="container-fluid">
-                    <a routerLink="/login">login   </a>
-                    <a routerLink="/requests">requests   </a>
-                    <a routerLink="/requests/create">create requests</a>
+        <div class="container text-center">
+            
+            
+            <div class="row">
+                <div class="col">
+                    <h1>Портал учета заявок</h1>
                 </div>
-                    
-                <router-outlet></router-outlet>
             </div>
+
+
+            <div class="row">
+                <div class="col text-left">
+                    Текущий курс : {{rate.Cur_OfficialRate}}
+                </div>
+
+                <div class="col text-right">
+                    <button class="btn btn-primary" (click)="logOut()">Выйти</button>
+                </div>
+            </div>
+            
         </div>
+
+        <router-outlet></router-outlet>    
         
-    
-    
-    
     `
 })
 

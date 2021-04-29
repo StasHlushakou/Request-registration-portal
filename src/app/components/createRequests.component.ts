@@ -5,28 +5,26 @@ import {RequestService} from '../services/request.service';
 @Component({
 
     selector: 'create-requests-app',
-    template: `<div class="page-header text-center">
-        <h1> Страница создания заявок </h1>
-    </div>
+    template: `
+    <div class="container text-center">
 
-
-
-
-    <div class="container">
-        
         <div class="row">
-            <input class="form-control" [(ngModel)]="theme" placeholder = "Тема" />
+            <input class="form-control" [(ngModel)]="theme"   maxlength="50" placeholder = "Тема" />
         </div>
         
         <div class="row">
-            <input class="form-control" [(ngModel)]="description" placeholder="Описание" />
+            <input class="form-control" [(ngModel)]="description" maxlength="500" placeholder="Описание" />
         </div>
         
         <div class="row">
-            <button class="btn btn-default" (click)="createRequest(theme, description)">Создать запрос</button>
-        </div>
+            <div class="col text-left">
+                <button class="btn btn-primary" (click)="createRequest(theme, description)">Создать запрос</button>
+            </div>
 
-        <button class="btn btn-default" (click)="back()">Назад</button>
+            <div class="col text-right">
+                <button class="btn btn-primary" (click)="back()">Назад</button>
+            </div>
+        </div>
         
     </div>
     

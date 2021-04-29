@@ -6,29 +6,27 @@ import {Request} from "../Request";
 @Component({
 
     selector: 'requests-app',
-    template: `<div class="page-header text-center">
-        <h1> Страница заявок </h1>
-    </div>
+    template: `    
     
-    
-    <div class="container">
+    <div class="container text-center">
 
         <table class="table table-striped">
             <thead>
             <tr>
                 <th>Дата</th>
                 <th>Тема</th>
+                <th></th>
             </tr>
             <tr *ngFor="let req of requests" (click)="openRequest(req._id)">
                 <td>{{req._date}}</td>
                 <td>{{req._theme}}</td>
-                <td><button class="btn btn-default" (click)="deleteRequest(req._id)">Удалить заявку</button></td>
+                <td class="text-right"><button class="btn btn-primary" (click)="deleteRequest(req._id)">Удалить заявку</button></td>
             </tr>
             </thead>
 
         </table>
 
-        <button class="btn btn-default" (click)="addRequest()">Создать новый запрос</button>
+        <button class="btn btn-primary" (click)="addRequest()">Создать новый запрос</button>
     </div>
     
     

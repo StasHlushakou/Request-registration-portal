@@ -9,6 +9,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/popper.js/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
             "outputPath": "dist/purchaseapp",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -25,5 +33,5 @@
         }
       }
     }},
-  "defaultProject": "purchaseapp"
+  "defaultProject": "purchaseapp",
 }
