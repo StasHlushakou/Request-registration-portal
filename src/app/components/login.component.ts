@@ -13,7 +13,7 @@ import {UserService} from "../services/user.service";
             
             <label>Логин</label>
             
-            <input class="form-control" name="email" [(ngModel)]="login" #email="ngModel"
+            <input class="form-control" name="email" [(ngModel)]="login" #email="ngModel" autocomplete="on"
                    required pattern="[a-zA-Z_.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}" (focus)="resetLogin()"/>
             
             <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
@@ -23,7 +23,7 @@ import {UserService} from "../services/user.service";
 
             <label>Пароль</label>
             
-            <input class="form-control" name="pass" [(ngModel)]="password" #pass="ngModel"
+            <input class="form-control" name="pass" [(ngModel)]="password" #pass="ngModel" autocomplete="off"
                    required pattern="[a-zA-Z0-9]*" (focus)="resetPass()"/>
             
             <div [hidden]="pass.valid || pass.untouched" class="alert alert-danger">

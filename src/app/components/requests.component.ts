@@ -45,6 +45,7 @@ export class RequestsComponent {
     }
 
     deleteRequest(requestId: number){
+        event.stopPropagation()
         let isdelete = confirm(`Вы уверены, что хотите удалить заявку № ${requestId}?`)
         if (isdelete) {
             RequestService.removeRecordById(requestId) ;

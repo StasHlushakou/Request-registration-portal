@@ -13,8 +13,8 @@ export class RequestService{
         return LocalStorageService.getRequestByUserId(userId);
     }
 
-    static addRequest(userId: number, theme: string, description: string): void {
-        LocalStorageService.addRequest(userId, theme, description);
+    static addRequest(userId: number, theme: string, description: string, date: Date): void {
+        LocalStorageService.addRequest(userId, theme, description, date);
     }
 
     static removeRecordById(recordId: number): void{

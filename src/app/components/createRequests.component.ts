@@ -9,20 +9,24 @@ import {RequestService} from '../services/request.service';
     <div class="container text-center">
 
         <div class="row">
-            <input class="form-control" [(ngModel)]="theme" (focus)="resetThemeAlert()" maxlength="50" placeholder = "Тема" />
+            <input class="form-control" [(ngModel)]="theme" (focus)="resetThemeAlert()" maxlength="50" placeholder = "Тема" autocomplete="off"/>
         </div>
         <div [hidden]="!isThemeAlert" class="alert alert-danger">
             Тема должна содержать не менее 3 и не более 50 символов.</div>
         
         <div class="row">
-            <input class="form-control" [(ngModel)]="description" (focus)="resetDescriptionAlert()" maxlength="500" placeholder="Описание" />
+            <input class="form-control" [(ngModel)]="description" (focus)="resetDescriptionAlert()" maxlength="500" placeholder="Описание" autocomplete="off"/>
         </div>
         <div [hidden]="!isDescriptionAlert" class="alert alert-danger">
             Описание должно содержать не менее 3 и не более 500 символов.</div>
         
         <div class="row">
+            <input  class="form-control" type="date" [(ngModel)]="date">
+        </div>
+        
+        <div class="row">
             <div class="col text-left">
-                <button class="btn btn-primary" (click)="createRequest(theme, description)">Создать запрос</button>
+                <button class="btn btn-primary" (click)="createRequest(theme, description, date)">Создать запрос</button>
             </div>
 
             <div class="col text-right">
@@ -41,11 +45,12 @@ export class CreateRequestsComponent {
     userId: number;
     theme: string;
     description: string;
+    date: Date;
 
     isThemeAlert: boolean;
     isDescriptionAlert: boolean;
 
-    createRequest(theme: string, description: string): void{
+    createRequest(theme: string, description: string, date: Date): void{
         if (this.theme.length < 3 || this.theme.length > 50){
             this.isThemeAlert = true;
             return;
@@ -54,7 +59,8 @@ export class CreateRequestsComponent {
             this.isDescriptionAlert = true;
             return;
         }
-        RequestService.addRequest(this.userId,theme, description);
+        date = new Date(date)
+        RequestService.addRequest(this.userId,theme, description, date);
         this.router.navigate(['/requests']);
     }
 

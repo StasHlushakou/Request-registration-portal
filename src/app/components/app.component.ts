@@ -23,7 +23,7 @@ import {Rate} from "../Rate";
                 </div>
 
                 <div class="col text-right">
-                    <button class="btn btn-primary" (click)="logOut()">Выйти</button>
+                    <button class="btn btn-primary" (click)="logOut()" [hidden]="isLogIn()">Выйти</button>
                 </div>
             </div>
             
@@ -44,6 +44,9 @@ export class AppComponent {
         this.http.get('https://www.nbrb.by/api/exrates/rates/145').subscribe((data:Rate) => this.rate=data);
     }
 
+    isLogIn(){
+        return this.router.url.endsWith("login")
+    }
 
     logOut(){
         sessionStorage.clear();

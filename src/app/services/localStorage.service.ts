@@ -87,9 +87,8 @@ export class LocalStorageService{
         return requests;
     }
 
-    static addRequest(userId: number, theme: string, description: string): void {
+    static addRequest(userId: number, theme: string, description: string, date: Date): void {
         let requestList: Request[] = LocalStorageService.getRequestFromStorage();
-        let date = new Date();
         if (requestList.length == 0){
             LocalStorageService.addRequestToStorage(new Request(1, userId, theme, description, date.getDate()+"."+(date.getMonth()+1)+"."+date.getFullYear()));
         } else {
