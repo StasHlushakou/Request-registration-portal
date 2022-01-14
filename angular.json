@@ -5,6 +5,12 @@
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
+      "i18n": {
+        "sourceLocale": "ru",
+        "locales": {
+          "en": "src/locale/messages.en.xlf"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -22,16 +28,36 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.json",
-            "aot": true
+            "aot": true,
+            "localize": false,
+            "i18nMissingTranslation": "error"
+          },
+          "configurations": {
+            "en": {
+              "localize": [
+                "en"
+              ]
+            }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "purchaseapp:build"
+          },
+          "configurations": {
+            "en": {
+              "browserTarget": "purchaseapp:build:en"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "purchaseapp:build"
           }
         }
       }
     }},
-  "defaultProject": "purchaseapp",
+  "defaultProject": "purchaseapp"
 }

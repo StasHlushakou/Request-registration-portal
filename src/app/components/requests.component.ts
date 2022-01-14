@@ -13,20 +13,20 @@ import {Request} from "../Request";
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Дата</th>
-                <th>Тема</th>
+                <th i18n>Дата</th>
+                <th i18n>Тема</th>
                 <th></th>
             </tr>
             <tr *ngFor="let req of requests" (click)="openRequest(req._id)">
                 <td>{{req._date}}</td>
                 <td>{{req._theme}}</td>
-                <td class="text-right"><button class="btn btn-primary" (click)="deleteRequest(req._id)">Удалить заявку</button></td>
+                <td class="text-right"><button class="btn btn-primary" (click)="deleteRequest(req._id)" i18n>Удалить заявку</button></td>
             </tr>
             </thead>
 
         </table>
 
-        <button class="btn btn-primary" (click)="addRequest()">Создать новый запрос</button>
+        <button class="btn btn-primary" (click)="addRequest()" i18n>Создать новый запрос</button>
     </div>
     
     

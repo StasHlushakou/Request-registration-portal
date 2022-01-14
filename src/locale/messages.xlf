@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="ru" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="b7ee8c88bd600aec1348252a2f24a60839476670" datatype="html">
+        <source>Портал учета заявок</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/app.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="231593a8e494921b0032b1e0a2dba4c92c7ddee8" datatype="html">
+        <source> Текущий курс USD : <x id="INTERPOLATION" equiv-text=" {{rate.Cur_OfficialRate}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/app.component.ts</context>
+          <context context-type="linenumber">21,23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f9de4cc357bb009c8a876d5a98d91bffbd9a5459" datatype="html">
+        <source>Выйти</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/app.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6414b201e5534a5b2ebf2445663f3bea95577234" datatype="html">
+        <source>Логин</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cf3cf02690e626c33f38adb996d3d886eef718d6" datatype="html">
+        <source> Некорректный email</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="bf4b9e4c1e7361b7b80dd9da93ca8e04a2ef4021" datatype="html">
+        <source>Пользователь с таким email уже существует.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5eb9d177ec974f9b5c9abb9093d10650a469449a" datatype="html">
+        <source>Пароль</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1e9d3efaf420fa08a8481c46e0580455db6199ab" datatype="html">
+        <source> Пароль может содержать большие и малые буквы латинского алфавита, цифры.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login.component.ts</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2597a4e075c1433157f27b1d075f00c116b7d03e" datatype="html">
+        <source>Неверный пароль.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="15b94eeb99b93bf636366f164040cacbdf855073" datatype="html">
+        <source>Войти</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="863152b48b6cda7a25782bee627c2f04c4712e28" datatype="html">
+        <source>Зарегистрироваться</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/login.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4376712d5f75975fb7a28c57b444e70d8f99360a" datatype="html">
+        <source>Дата</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/requests.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/showRequest.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b99bd80a0da65a268f5fb83ed256a5d6ad349c64" datatype="html">
+        <source>Тема</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/requests.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/createRequests.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/showRequest.component.ts</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9e3077f4483fc4d22ed6f3529c14deaf63e096af" datatype="html">
+        <source>Создать новый запрос</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/requests.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e32c66552acb7f0df0e4d99402bd89b47f2729bf" datatype="html">
+        <source>Удалить заявку</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/requests.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/showRequest.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1caefc91a1c877376fd597931f3c0a476bd57fbf" datatype="html">
+        <source> Тема должна содержать не менее 3 и не более 50 символов.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/createRequests.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d10f8579d99ef30dcbeffc28775d80e0831c03c0" datatype="html">
+        <source>Описание</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/createRequests.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/showRequest.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="41db4dbd58a2a54087a0a07d9bc59e9ded82ae35" datatype="html">
+        <source> Описание должно содержать не менее 3 и не более 500 символов.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/createRequests.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f7c20dd19f862c562197c1b258b7949ae57a4ee5" datatype="html">
+        <source>Создать запрос</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/createRequests.component.ts</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="15761673e052961fb14afbac59d44ec8201f1e92" datatype="html">
+        <source>Назад</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/createRequests.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/showRequest.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -13,15 +13,15 @@ import {Request} from "../Request";
 
         <table class="table table-striped table-bordered">
             <tr>
-                <th>Дата</th>
+                <th i18n>Дата</th>
                 <th class="text-left">{{request._date}}</th>
             </tr>
             <tr>
-                <th>Тема</th>
+                <th i18n>Тема</th>
                 <th class="text-left">{{request._theme}}</th>
             </tr>
             <tr>
-                <th>Описание</th>
+                <th i18n>Описание</th>
                 <th class="text-left">{{request._description}}</th>
             </tr>
 
@@ -29,11 +29,11 @@ import {Request} from "../Request";
 
         <div class="row">
             <div class="col text-left">
-                <button class="btn btn-primary" (click)="deleteRequest(request._id)">Удалить заявку</button>
+                <button class="btn btn-primary" (click)="deleteRequest(request._id)" i18n>Удалить заявку</button>
             </div>
 
             <div class="col text-right">
-                <button class="btn btn-primary" (click)="back()">Назад</button>
+                <button class="btn btn-primary" (click)="back()" i18n>Назад</button>
             </div>
         </div>
         

@@ -9,15 +9,15 @@ import {RequestService} from '../services/request.service';
     <div class="container text-center">
 
         <div class="row">
-            <input class="form-control" [(ngModel)]="theme" (focus)="resetThemeAlert()" maxlength="50" placeholder = "Тема" autocomplete="off"/>
+            <input class="form-control" [(ngModel)]="theme" (focus)="resetThemeAlert()" maxlength="50" i18n-placeholder placeholder = "Тема" autocomplete="off"/>
         </div>
-        <div [hidden]="!isThemeAlert" class="alert alert-danger">
+        <div [hidden]="!isThemeAlert" class="alert alert-danger" i18n>
             Тема должна содержать не менее 3 и не более 50 символов.</div>
         
         <div class="row">
-            <input class="form-control" [(ngModel)]="description" (focus)="resetDescriptionAlert()" maxlength="500" placeholder="Описание" autocomplete="off"/>
+            <input class="form-control" [(ngModel)]="description" (focus)="resetDescriptionAlert()" maxlength="500" i18n-placeholder placeholder="Описание" autocomplete="off"/>
         </div>
-        <div [hidden]="!isDescriptionAlert" class="alert alert-danger">
+        <div [hidden]="!isDescriptionAlert" class="alert alert-danger" i18n>
             Описание должно содержать не менее 3 и не более 500 символов.</div>
         
         <div class="row">
@@ -26,11 +26,11 @@ import {RequestService} from '../services/request.service';
         
         <div class="row">
             <div class="col text-left">
-                <button class="btn btn-primary" (click)="createRequest(theme, description, date)">Создать запрос</button>
+                <button class="btn btn-primary" (click)="createRequest(theme, description, date)" i18n>Создать запрос</button>
             </div>
 
             <div class="col text-right">
-                <button class="btn btn-primary" (click)="back()">Назад</button>
+                <button class="btn btn-primary" (click)="back()" i18n>Назад</button>
             </div>
         </div>
         

@@ -12,18 +12,18 @@ import {Rate} from "../Rate";
             
             <div class="row">
                 <div class="col">
-                    <h1>Портал учета заявок</h1>
+                    <h1 i18n>Портал учета заявок</h1>
                 </div>
             </div>
 
 
             <div class="row">
-                <div class="col text-left">
-                    Текущий курс : {{rate.Cur_OfficialRate}}
+                <div class="col text-left" i18n>
+                    Текущий курс USD : {{rate.Cur_OfficialRate}}
                 </div>
 
                 <div class="col text-right">
-                    <button class="btn btn-primary" (click)="logOut()" [hidden]="isLogIn()">Выйти</button>
+                    <button class="btn btn-primary" (click)="logOut()" [hidden]="isLogIn()" i18n>Выйти</button>
                 </div>
             </div>
             
@@ -41,7 +41,7 @@ export class AppComponent {
     constructor(private router: Router, private http: HttpClient){}
 
     ngOnInit(){
-        this.http.get('https://www.nbrb.by/api/exrates/rates/145').subscribe((data:Rate) => this.rate=data);
+        this.http.get('https://www.nbrb.by/api/exrates/rates/431').subscribe((data:Rate) => this.rate = data, (error:any) => this.rate = new Rate());
     }
 
     isLogIn(){

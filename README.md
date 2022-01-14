@@ -10,7 +10,7 @@
 
  ## Нефункциональные требования:
 - [X] логика по получению/изменению заявок изолирована в сервисах.
-- [ ] текстовые сообщение на UI переводимы через файл ресурсов.
+- [X] текстовые сообщение на UI переводимы через файл ресурсов.
 - [X] используется UI router (либо аналоги)
 - [X] т.к. backend нет, сохранять все данные в local storage (включая данные о зарегистрированных пользователях)
 - [X] валидация полей при регистрации, логине, создании заявки (правила: не пустое, max-length, валидация email адреса) и подсветка полей. Запрет сохранения некорректной формы.
@@ -24,3 +24,19 @@
 - [X] успользование элементов date-picker, autocomplete в проекте
 - [ ] использование Promise.
 - [X] использовать окно подтверждения, при удалении заявки.
+
+
+```
+ng extract-i18n --output-path src/locale
+
+Build and run ru-bundle: 
+set true at angular.json projects.purchaseapp.architect.build.options.localize
+ng build --localize
+ng serve --configuration=en
+
+Build and run en-bundle:
+set false at angular.json projects.purchaseapp.architect.build.options.localize
+ng build
+ng serve
+```
+

@@ -11,35 +11,35 @@ import {UserService} from "../services/user.service";
 
         <div class="form-group">
             
-            <label>Логин</label>
+            <label i18n>Логин</label>
             
             <input class="form-control" name="email" [(ngModel)]="login" #email="ngModel" autocomplete="on"
                    required pattern="[a-zA-Z_.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}" (focus)="resetLogin()"/>
             
-            <div [hidden]="email.valid || email.untouched" class="alert alert-danger">
+            <div [hidden]="email.valid || email.untouched" class="alert alert-danger" i18n>
                 Некорректный email</div>
             
-            <div [hidden]="!incorrectLogin" class="alert alert-danger">Пользователь с таким email уже существует.</div>
+            <div [hidden]="!incorrectLogin" class="alert alert-danger" i18n>Пользователь с таким email уже существует.</div>
 
-            <label>Пароль</label>
+            <label i18n>Пароль</label>
             
             <input class="form-control" name="pass" [(ngModel)]="password" #pass="ngModel" autocomplete="off"
                    required pattern="[a-zA-Z0-9]*" (focus)="resetPass()"/>
             
-            <div [hidden]="pass.valid || pass.untouched" class="alert alert-danger">
+            <div [hidden]="pass.valid || pass.untouched" class="alert alert-danger" i18n>
                 Пароль может содержать большие и малые буквы латинского алфавита, цифры.</div>
             
-            <div [hidden]="!incorrectPassword" class="alert alert-danger">Неверный пароль.</div>
+            <div [hidden]="!incorrectPassword" class="alert alert-danger" i18n>Неверный пароль.</div>
 
             <div class="row">
                 <div class="col">
                     <button class="btn btn-primary" [disabled]="email.invalid || pass.invalid"
-                            (click)="signIn(login, password)">Войти</button>
+                            (click)="signIn(login, password)" i18n>Войти</button>
                 </div>
 
                 <div class="col">
                     <button class="btn btn-primary" [disabled]="email.invalid || pass.invalid"
-                            (click)="addUser(login, password)">Зарегистрироваться</button>
+                            (click)="addUser(login, password)" i18n>Зарегистрироваться</button>
                 </div>
             </div>
             
