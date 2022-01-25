@@ -31,12 +31,12 @@ ng extract-i18n --output-path src/locale
 
 Build and run ru-bundle: 
 set true at angular.json projects.purchaseapp.architect.build.options.localize
-ng build --localize
-ng serve --configuration=en
+run build
+build start
 
 Build and run en-bundle:
 set false at angular.json projects.purchaseapp.architect.build.options.localize
-ng build
-ng serve
+run build-en
+build start-en
 ```
 
