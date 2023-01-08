@@ -27,5 +27,23 @@ namespace Request_registration_portal.Controllers
             return req;
         }
 
+        [HttpPost()]
+        public void Post(Request request)
+        {
+            RequestService.Add(request);
+        }
+
+        [HttpPut()]
+        public void Put(Request request)
+        {
+            RequestService.Update(request);
+        }
+
+        [HttpDelete()]
+        public void Delete(int id)
+        {
+            RequestService.Delete(id);
+        }
+
     }
 }
