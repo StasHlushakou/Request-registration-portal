@@ -8,6 +8,11 @@ namespace Request_registration_portal.Data
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
+
+        //public DbSet<Request> Users => Set<Request>();
+        //public ApplicationContext() => Database.EnsureCreated();
+
+
         public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
             : base(options, operationalStoreOptions)
         {
