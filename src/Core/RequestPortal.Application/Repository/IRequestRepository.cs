@@ -5,6 +5,7 @@ namespace RequestPortal.Application.Repository
 {
     public interface IRequestRepository : IBaseRepository<Request>
     {
-        Task<List<Request>> GetByByUserId(Guid userId);
+        Task<Request> GetById(Guid id, Guid userId);
+        Task<List<Request>> GetByUserId(Guid userId);
     }
 }

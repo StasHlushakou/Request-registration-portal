@@ -30,14 +30,14 @@ namespace RequestPortal.Application.Services
             await _requestRepository.Update(request);
         }
 
-        public async Task<Request> GetRequestsById(Guid id)
+        public async Task<Request> GetRequestsById(Guid id, Guid userId)
         {
-            return await _requestRepository.Get(id);
+            return await _requestRepository.GetById(id, userId);
         }
 
         public async Task<List<Request>> GetAllRequestsByUserId(Guid userId)
         {
-            return await _requestRepository.GetByByUserId(userId);
+            return await _requestRepository.GetByUserId(userId);
         }
     }
 }

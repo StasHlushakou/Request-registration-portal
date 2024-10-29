@@ -25,7 +25,7 @@ namespace RequestPortal.Api.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        public async Task<ActionResult<LoginResponse>> Login([FromBody] LoginRequest request)
         {
             var token = await _customAuthenticationManager.Login(request.Login, request.Password);
 
@@ -36,7 +36,7 @@ namespace RequestPortal.Api.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+        public async Task<ActionResult<RegisterResponse>> Register([FromBody] RegisterRequest request)
         {
             await _userService.CreateUser(new User(request.Name, request.Email, request.Password));
 

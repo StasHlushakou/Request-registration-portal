@@ -6,7 +6,7 @@ namespace RequestPortal.Application.Common
     {
         Task AddRequest(Request request);
 
-        Task<Request> GetRequestsById(Guid id);
+        Task<Request> GetRequestsById(Guid id, Guid userId);
 
         Task<List<Request>> GetAllRequestsByUserId(Guid userId);
 

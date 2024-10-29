@@ -22,4 +22,9 @@
         public InvalidInputDataException() : base() { }
     }
 
+    public class NotFoundException : BaseApplicationException
+    {
+        public NotFoundException() : base() { }
+    }
+
 }

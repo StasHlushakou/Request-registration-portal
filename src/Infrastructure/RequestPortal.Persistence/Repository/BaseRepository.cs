@@ -22,6 +22,7 @@ namespace RequestPortal.Persistence.Repository
 
         public async Task Update(T entity)
         {
+            entity.DateUpdated = DateTime.Now;
             _context.Update(entity);
             await _context.SaveChangesAsync();
         }

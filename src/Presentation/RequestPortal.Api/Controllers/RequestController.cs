@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RequestPortal.Api.Controllers.Common;
 using RequestPortal.Application.Common;
-using RequestPortal.Contracts.Request;
+using RequestPortal.Contracts.DTO;
 using RequestPortal.Domain.Entities;
 
 namespace RequestPortal.Api.Controllers
@@ -22,40 +22,71 @@ namespace RequestPortal.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<ActionResult<List<RequestDTO>>> Get()
         {
-            var userId = GetUserId();
+            var requestList = await _requestService.GetAllRequestsByUserId(GetUserId());
 
-            return Ok(await _requestService.GetAllRequestsByUserId(userId));
+            var response = requestList.Select(r => new RequestDTO() { 
+                Id = r.Id.ToString(),
+                Theme = r.Theme,
+                Description = r.Description,
+            }).ToList();
+
+            return Ok(response);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(string id)
+        public async Task<ActionResult<RequestDTO>> GetById(string id)
         {
-            return Ok(await _requestService.GetRequestsById(ParseGuid(id)));
+            var requestFromDb = await _requestService.GetRequestsById(ParseGuid(id), GetUserId());
+
+            if (requestFromDb == null)
+                throw new NotFoundException();
+
+            var response = new RequestDTO()
+            {
+                Id = requestFromDb.Id.ToString(),
+                Theme = requestFromDb.Theme,
+                Description = requestFromDb.Description,
+            };
+
+            return Ok(response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] CreateRequestRequest request)
+        public async Task<IActionResult> Post([FromBody] RequestDTO request)
         {
             await _requestService.AddRequest(new Request(request.Theme, request.Description, GetUserId()));
 
             return Ok();
         }
 
-        /*
+        
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody] UpdateRequestRequest request)
+        public async Task<IActionResult> Put([FromBody] RequestDTO request)
         {
-            await _requestService.AddRequest(new Request(request.Theme, request.Description, GetUserId()));
+            var requestFromDb = await _requestService.GetRequestsById(ParseGuid(request.Id), GetUserId());
+
+            if (requestFromDb == null) 
+                throw new NotFoundException();
+
+            requestFromDb.Theme = request.Theme;
+            requestFromDb.Description = request.Description;
+
+            await _requestService.UpdateRequest(requestFromDb);
 
             return Ok();
-        }*/
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            await _requestService.DeleteRequest(ParseGuid(id));
+            var requestFromDb = await _requestService.GetRequestsById(ParseGuid(id), GetUserId());
+
+            if (requestFromDb == null)
+                throw new NotFoundException();
+
+            await _requestService.DeleteRequest(requestFromDb.Id);
 
             return Ok();
         }

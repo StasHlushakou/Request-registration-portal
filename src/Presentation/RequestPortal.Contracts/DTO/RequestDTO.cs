@@ -1,6 +1,6 @@
-﻿namespace RequestPortal.Contracts.Request
+﻿namespace RequestPortal.Contracts.DTO
 {
-    public sealed record UpdateRequestRequest
+    public sealed record RequestDTO
     {
         public string Id { get; set; }
         public string Theme { get; set; }
