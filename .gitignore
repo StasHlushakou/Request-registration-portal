@@ -232,3 +232,50 @@ _Pvt_Extensions
 
 # Custom ignor
 .angular/
+
+
+
+
+# FROM ANGULAR PROJECT
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+Presentation/FrontEnd/dist
+Presentation/FrontEnd/tmp
+Presentation/FrontEnd/out-tsc
+Presentation/FrontEnd/bazel-out
+
+# Node
+Presentation/FrontEnd/node_modules
+Presentation/FrontEnd/npm-debug.log
+Presentation/FrontEnd/yarn-error.log
+
+# IDEs and editors
+Presentation/FrontEnd/.idea/
+Presentation/FrontEnd/.project
+Presentation/FrontEnd/.classpath
+Presentation/FrontEnd/.c9/
+Presentation/FrontEnd/*.launch
+Presentation/FrontEnd/.settings/
+Presentation/FrontEnd/*.sublime-workspace
+
+# Visual Studio Code
+Presentation/FrontEnd/.vscode/*
+Presentation/FrontEnd/!.vscode/settings.json
+Presentation/FrontEnd/!.vscode/tasks.json
+Presentation/FrontEnd/!.vscode/launch.json
+Presentation/FrontEnd/!.vscode/extensions.json
+Presentation/FrontEnd/.history/*
+
+# Miscellaneous
+Presentation/FrontEnd/.angular/cache
+Presentation/FrontEnd/.sass-cache/
+Presentation/FrontEnd/connect.lock
+Presentation/FrontEnd/coverage
+Presentation/FrontEnd/libpeerconnection.log
+Presentation/FrontEnd/testem.log
+Presentation/FrontEnd/typings
+
+# System files
+Presentation/FrontEnd/.DS_Store
+Presentation/FrontEnd/Thumbs.db
