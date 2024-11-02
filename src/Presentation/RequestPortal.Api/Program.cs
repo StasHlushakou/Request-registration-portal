@@ -1,4 +1,5 @@
 using RequestPortal.Infrastructure;
+using RequestPortal.Infrastructure.Middlewares;
 using RequestPortal.Persistence;
 
 namespace RequestPortal.Api
@@ -35,7 +36,11 @@ namespace RequestPortal.Api
 
             app.MapControllers();
 
+            app.UseMiddleware<ErrorMiddleware>();
+            //app.UseMiddleware<LogMiddleware>();
+
             app.Run();
         }
+
     }
 }

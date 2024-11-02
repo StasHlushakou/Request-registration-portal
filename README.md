@@ -31,3 +31,8 @@
 - [ ] Переводы.
 - [ ] Unit-тесты.
 - [ ] Добавить обработку ошибок в запросах на бэкенд и их обработку на фронтенде.
+
+
+ first migration
+ cd ...\Request-registration-portal\src\Infrastructure\RequestPortal.Persistence>dotnet ef migrations add init -s ..\..\Presentation\RequestPortal.Api\RequestPortal.Api.csproj
+ cd ...\Request-registration-portal\src\Infrastructure\RequestPortal.Persistence>dotnet ef migrations add init -s ..\..\Presentation\RequestPortal.Api\RequestPortal.Api.csproj
