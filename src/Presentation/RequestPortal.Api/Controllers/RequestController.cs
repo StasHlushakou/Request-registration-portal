@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RequestPortal.Api.Controllers.Common;
 using RequestPortal.Application.Common;
 using RequestPortal.Contracts.DTO;
+using RequestPortal.Contracts.Request;
 using RequestPortal.Domain.Entities;
 
 namespace RequestPortal.Api.Controllers
@@ -54,7 +55,7 @@ namespace RequestPortal.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] RequestDTO request)
+        public async Task<IActionResult> Post([FromBody] CreateUpdateRequest request)
         {
             await _requestService.AddRequest(new Request(request.Theme, request.Description, GetUserId()));
 
@@ -62,10 +63,10 @@ namespace RequestPortal.Api.Controllers
         }
 
         
-        [HttpPut]
-        public async Task<IActionResult> Put([FromBody] RequestDTO request)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(string id, [FromBody] CreateUpdateRequest request)
         {
-            var requestFromDb = await _requestService.GetRequestsById(ParseGuid(request.Id), GetUserId());
+            var requestFromDb = await _requestService.GetRequestsById(ParseGuid(id), GetUserId());
 
             if (requestFromDb == null) 
                 throw new NotFoundException();
