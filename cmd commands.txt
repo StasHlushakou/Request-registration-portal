@@ -1,0 +1,3 @@
+// backend
+cd /d D:\projects\Request-registration-portal\src\Presentation\RequestPortal.Api
+dotnet run

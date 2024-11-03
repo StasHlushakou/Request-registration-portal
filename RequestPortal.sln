@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		docker-compose.yml = docker-compose.yml
+		cmd commands.txt = cmd commands.txt
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -18,19 +19,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{6C6E0414-EE19-4C31-9742-50799E66336C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestPortal.Domain", "src\Core\RequestPortal.Domain\RequestPortal.Domain.csproj", "{35C7159C-BC2A-417D-8703-4E5B44ABDD9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestPortal.Domain", "src\Core\RequestPortal.Domain\RequestPortal.Domain.csproj", "{35C7159C-BC2A-417D-8703-4E5B44ABDD9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestPortal.Application", "src\Core\RequestPortal.Application\RequestPortal.Application.csproj", "{85E628B2-4EB4-430B-B299-74027FAC3870}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestPortal.Application", "src\Core\RequestPortal.Application\RequestPortal.Application.csproj", "{85E628B2-4EB4-430B-B299-74027FAC3870}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestPortal.Persistence", "src\Infrastructure\RequestPortal.Persistence\RequestPortal.Persistence.csproj", "{0456F4A3-084A-4823-A963-FFDC29DCC6CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestPortal.Persistence", "src\Infrastructure\RequestPortal.Persistence\RequestPortal.Persistence.csproj", "{0456F4A3-084A-4823-A963-FFDC29DCC6CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestPortal.Infrastructure", "src\Infrastructure\RequestPortal.Infrastructure\RequestPortal.Infrastructure.csproj", "{5A5C559B-DC44-49AE-BD0D-2F96934467BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestPortal.Infrastructure", "src\Infrastructure\RequestPortal.Infrastructure\RequestPortal.Infrastructure.csproj", "{5A5C559B-DC44-49AE-BD0D-2F96934467BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestPortal.Api", "src\Presentation\RequestPortal.Api\RequestPortal.Api.csproj", "{53F94A3D-F727-4599-8BAD-16EB76C29A84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestPortal.Api", "src\Presentation\RequestPortal.Api\RequestPortal.Api.csproj", "{53F94A3D-F727-4599-8BAD-16EB76C29A84}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "RequestPortal.FrontEnd", "src\Presentation\RequestPortal.FrontEnd\RequestPortal.FrontEnd.esproj", "{F889418A-E8CC-4761-A96B-024EA9142ABA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestPortal.Contracts", "src\Presentation\RequestPortal.Contracts\RequestPortal.Contracts.csproj", "{1E49AC56-4D17-44B3-8C4F-5CB120118504}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestPortal.Contracts", "src\Presentation\RequestPortal.Contracts\RequestPortal.Contracts.csproj", "{1E49AC56-4D17-44B3-8C4F-5CB120118504}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
