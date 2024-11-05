@@ -1,0 +1,31 @@
+<div class="container page">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-md-3 col-xs-12">
+            <h1 class="text-xs-center">Sign in</h1>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <fieldset>
+                    <fieldset class="form-group">
+                        <input type="text"
+                               class="form-control form-control-lg"
+                               placeholder="Email"
+                               formControlName="email" />
+                    </fieldset>
+                    <div [hidden]="true" class="alert alert-danger">
+                        Некорректный email
+                    </div>
+                    <fieldset class="form-group">
+                        <input type="password"
+                               class="form-control form-control-lg"
+                               placeholder="Password"
+                               formControlName="password" />
+                    </fieldset>
+                    <div [hidden]="loginForm.value.password.valid" class="alert alert-danger">Неверный пароль.</div>
+                    <button class="btn btn-lg btn-primary pull-xs-right"
+                            type="submit">
+                        Sign in
+                    </button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
