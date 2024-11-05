@@ -1,6 +1,13 @@
 <div class="container">
     <rrp-topBar></rrp-topBar>
     <router-outlet></router-outlet>
+
+    <div class="title">
+        <h1>{{ 'demo.title' | translate }}</h1>
+        <span>Switch languages at runtime: </span>
+        <button (click)="useLanguage('en')">en</button>
+        <button (click)="useLanguage('ru')">ru</button>
+    </div>
 </div>
 
 

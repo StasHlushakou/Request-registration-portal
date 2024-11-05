@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'RequestPortal.FrontEnd';
+  constructor(private translate: TranslateService) {
+    this.translate.addLangs(['ru', 'en']);
+    this.translate.setDefaultLang('en');
+    this.translate.use(this.translate.getBrowserLang() || 'en');
+  }
+
+  useLanguage(language: string): void {
+    this.translate.use(language);
+  }
 }
