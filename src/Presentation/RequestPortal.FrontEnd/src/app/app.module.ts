@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GlobalFeedModule } from './helloPage/helloPage.module';
-import { TopBarModule } from './shared/modules/topBar/topBar.module';
 import { AuthModule } from './auth/auth.module';
-
-// import ngx-translate and the http loader
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
+  HTTP_INTERCEPTORS,
   HttpClient,
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { SharedModule } from './shared/shared.module';
+import { PersistanceService } from './services/persistance.service';
+import { ApiService } from './services/api.service';
+import { AuthInterceptor } from './services/authinterceptor.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +24,7 @@ import {
     BrowserModule,
     AppRoutingModule,
     GlobalFeedModule,
-    TopBarModule,
+    SharedModule,
     AuthModule,
     TranslateModule.forRoot({
       loader: {
@@ -32,7 +34,17 @@ import {
       },
     }),
   ],
-  providers: [provideHttpClient(withInterceptorsFromDi())],
+  providers: [
+    ApiService,
+    AuthService,
+    PersistanceService,
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

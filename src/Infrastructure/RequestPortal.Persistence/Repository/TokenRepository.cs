@@ -14,5 +14,14 @@ namespace RequestPortal.Persistence.Repository
         {
             return await GetAll().FirstOrDefaultAsync(t => t.UserId == userId);
         }
+
+        public async Task DeleteByUserId(Guid userId)
+        {
+            var tokenFromDb = await GetByUserId(userId);
+            if (tokenFromDb != null)
+            {
+                await Delete(tokenFromDb.Id);
+            }
+        }
     }
 }

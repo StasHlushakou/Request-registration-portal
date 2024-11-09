@@ -46,5 +46,10 @@ namespace RequestPortal.Infrastructure.Authentication
 
             return token.Id.ToString();
         }
+
+        public async Task Logout(Guid userId)
+        {
+            await _tokenRepository.DeleteByUserId(userId);
+        }
     }
 }

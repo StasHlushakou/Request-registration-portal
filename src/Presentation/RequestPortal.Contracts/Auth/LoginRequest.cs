@@ -1,4 +1,4 @@
-﻿namespace RequestPortal.Contracts.Auth.Login
+﻿namespace RequestPortal.Contracts.Auth
 {
     public sealed record LoginRequest
     {

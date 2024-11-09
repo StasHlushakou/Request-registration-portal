@@ -5,9 +5,12 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import { LoginRequestInterface } from '../../types/loginRequest.interface';
 import { ValidationHelper } from '../../../shared/helpers/validation.helper';
+import { RegisterRequestInterface } from '../../types/registerRequest.interface';
+import { first } from 'rxjs';
+import { TokenResponseInterface } from '../../types/tokenResponse.interface';
+import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'rrp-register',
@@ -16,12 +19,13 @@ import { ValidationHelper } from '../../../shared/helpers/validation.helper';
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
+  isSomethingWrong = false;
+  isRequestProcessing = false;
 
-  static readonly emailWithDomainRegexPattern: RegExp =
-    /^[\p{L}\p{N}._%+'’-]+@[\p{L}\p{N}.-]+\.[\p{L}]{2,4}$/u;
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,16 +35,32 @@ export class RegisterComponent implements OnInit {
   initializeForm(): void {
     this.registerForm = this.fb.group({
       email: new FormControl('', [
+        Validators.required,
         Validators.pattern(ValidationHelper.emailWithDomainRegexPattern),
       ]),
-      password: new FormControl(''),
+      password: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
     });
   }
 
   onSubmit(): void {
-    const request: LoginRequestInterface = {
+    const request: RegisterRequestInterface = {
+      name: this.registerForm.value.name,
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
     };
+    this.isRequestProcessing = true;
+    this.authService
+      .register(request)
+      .pipe(first())
+      .subscribe(
+        (res: TokenResponseInterface) => {
+          this.router.navigate(['/']);
+        },
+        (err) => {
+          this.isRequestProcessing = false;
+          this.isSomethingWrong = true;
+        }
+      );
   }
 }

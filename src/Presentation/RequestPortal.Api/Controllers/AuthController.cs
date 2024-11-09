@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RequestPortal.Api.Controllers.Common;
 using RequestPortal.Application.Common;
-using RequestPortal.Contracts.Auth.Login;
-using RequestPortal.Contracts.Auth.Register;
+using RequestPortal.Contracts.Auth;
 using RequestPortal.Domain.Entities;
 using RequestPortal.Infrastructure.Authentication;
 
@@ -25,18 +25,18 @@ namespace RequestPortal.Api.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<LoginResponse>> Login([FromBody] LoginRequest request)
+        public async Task<ActionResult<TokenResponse>> Login([FromBody] LoginRequest request)
         {
             var token = await _customAuthenticationManager.Login(request.Login, request.Password);
 
             if (token == null)
                 return Unauthorized();
 
-            return Ok(new LoginResponse() { Token = token });
+            return Ok(new TokenResponse() { Token = token });
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<RegisterResponse>> Register([FromBody] RegisterRequest request)
+        public async Task<ActionResult<TokenResponse>> Register([FromBody] RegisterRequest request)
         {
             await _userService.CreateUser(new User(request.Name, request.Email, request.Password));
 
@@ -45,8 +45,16 @@ namespace RequestPortal.Api.Controllers
             if (token == null)
                 return Unauthorized();
 
-            return Ok(new RegisterResponse() { Token = token });
+            return Ok(new TokenResponse() { Token = token });
         }
 
+        [HttpPost("logout")]
+        [Authorize]
+        public async Task<ActionResult<TokenResponse>> Logout()
+        {
+            await _customAuthenticationManager.Logout(GetUserId());
+
+            return Ok();
+        }
     }
 }

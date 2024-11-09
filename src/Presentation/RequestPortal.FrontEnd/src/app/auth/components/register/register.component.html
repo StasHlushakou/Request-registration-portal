@@ -1,31 +1,46 @@
 <div class="container page">
     <div class="row justify-content-center">
         <div class="col-md-6 col-md-3 col-xs-12">
-            <h1 class="text-xs-center">Sign up</h1>
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <fieldset>
+
                     <fieldset class="form-group">
                         <input type="text"
                                class="form-control form-control-lg"
-                               placeholder="Email"
-                               formControlName="email" />
+                               placeholder="{{'auth.name' | translate}}"
+                               formControlName="name" />
                     </fieldset>
+
+                    <div [hidden]="!(registerForm.controls['name'].invalid && registerForm.controls['name'].touched)"
+                         class="alert alert-danger">
+                        {{'auth.invalidEmailFormat' | translate}}
+                    </div>
+
                     <fieldset class="form-group">
                         <input type="text"
                                class="form-control form-control-lg"
-                               placeholder="Email"
+                               placeholder="{{'auth.email' | translate}}"
                                formControlName="email" />
                     </fieldset>
+
+                    <div [hidden]="!(registerForm.controls['email'].invalid && registerForm.controls['email'].touched)"
+                         class="alert alert-danger">
+                        {{'auth.invalidEmailFormat' | translate}}
+                    </div>
+
                     <fieldset class="form-group">
                         <input type="password"
                                class="form-control form-control-lg"
-                               placeholder="Password"
+                               placeholder="{{'auth.password' | translate}}"
                                formControlName="password" />
                     </fieldset>
+
                     <button class="btn btn-lg btn-primary pull-xs-right"
-                            type="submit">
-                        Sign in
+                            type="submit"
+                            [disabled]="registerForm.invalid || isRequestProcessing">
+                        {{'auth.signUp' | translate}}
                     </button>
+
                 </fieldset>
             </form>
         </div>

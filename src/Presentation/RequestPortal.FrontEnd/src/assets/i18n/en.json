@@ -1,5 +1,18 @@
 {
-  "demo": {
-    "title": "title"
+  "topBar": {
+    "en": "english",
+    "ru": "russian",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "logout": "Logout"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "invalidPassword": "Invalid password.",
+    "emailInvalidMessage": "Invalid email format."
   }
 }

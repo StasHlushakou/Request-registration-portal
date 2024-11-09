@@ -10,6 +10,13 @@ namespace RequestPortal.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddCors(o =>
+                o.AddDefaultPolicy(p => p.WithOrigins("http://localhost:4200", "https://localhost:4200")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials())
+                );
+
             var connection = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.ConfigurePersistence(connection);
 
@@ -38,6 +45,8 @@ namespace RequestPortal.Api
 
             app.UseMiddleware<ErrorMiddleware>();
             //app.UseMiddleware<LogMiddleware>();
+
+            app.UseCors();
 
             app.Run();
         }

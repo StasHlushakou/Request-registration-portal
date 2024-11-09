@@ -5,5 +5,7 @@
         Task<string?> Login(string username, string password);
 
         Task<Guid?> Authenticate(string token);
+
+        Task Logout(Guid userId);
     }
 }

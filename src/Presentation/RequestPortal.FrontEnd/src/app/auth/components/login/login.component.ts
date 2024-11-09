@@ -5,9 +5,13 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+
 import { LoginRequestInterface } from '../../types/loginRequest.interface';
 import { ValidationHelper } from '../../../shared/helpers/validation.helper';
+import { TokenResponseInterface } from '../../types/tokenResponse.interface';
+import { first } from 'rxjs';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'rrp-login',
@@ -16,12 +20,12 @@ import { ValidationHelper } from '../../../shared/helpers/validation.helper';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-
-  static readonly emailWithDomainRegexPattern: RegExp =
-    /^[\p{L}\p{N}._%+'’-]+@[\p{L}\p{N}.-]+\.[\p{L}]{2,4}$/u;
+  isPasswordInvalid = false;
+  isRequestProcessing = false;
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,16 +35,30 @@ export class LoginComponent implements OnInit {
   initializeForm(): void {
     this.loginForm = this.fb.group({
       email: new FormControl('', [
+        Validators.required,
         Validators.pattern(ValidationHelper.emailWithDomainRegexPattern),
       ]),
-      password: new FormControl(''),
+      password: new FormControl('', [Validators.required]),
     });
   }
 
   onSubmit(): void {
     const request: LoginRequestInterface = {
-      email: this.loginForm.value.email,
+      login: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
+    this.isRequestProcessing = true;
+    this.authService
+      .login(request)
+      .pipe(first())
+      .subscribe(
+        (res: TokenResponseInterface) => {
+          this.router.navigate(['/']);
+        },
+        (err) => {
+          this.isPasswordInvalid = true;
+          this.isRequestProcessing = false;
+        }
+      );
   }
 }
