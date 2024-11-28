@@ -1,4 +1,4 @@
-﻿namespace RequestPortal.Contracts.DTO
+﻿namespace RequestPortal.Contracts.Request
 {
     public sealed record RequestDTO
     {

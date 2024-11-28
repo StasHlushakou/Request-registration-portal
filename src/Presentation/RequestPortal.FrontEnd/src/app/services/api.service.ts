@@ -101,7 +101,7 @@ export class ApiService {
 
   public delete<T>(
     url: string,
-    request: any,
+    request: any = {},
     options: any = {}
   ): Observable<T> {
     return this.http

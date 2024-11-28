@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RequestPortal.Api.Controllers.Common;
 using RequestPortal.Application.Common;
-using RequestPortal.Contracts.DTO;
 using RequestPortal.Contracts.Request;
 using RequestPortal.Domain.Entities;
 

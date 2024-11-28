@@ -8,6 +8,9 @@
     <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist\RequestPortal.FrontEnd\</PublishAssetsDirectory>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\app\auth\services\" />
+    <TypeScriptConfiguration Remove="src\app\auth\services\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\app\auth\services\**" />
   </ItemGroup>
 </Project>

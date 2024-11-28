@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GlobalFeedModule } from './helloPage/helloPage.module';
 import { AuthModule } from './auth/auth.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -17,15 +16,17 @@ import { PersistanceService } from './services/persistance.service';
 import { ApiService } from './services/api.service';
 import { AuthInterceptor } from './services/authinterceptor.service';
 import { AuthService } from './services/auth.service';
+import { RequestModule } from './request/request.module';
+import { RequestService } from './services/request.service';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GlobalFeedModule,
     SharedModule,
     AuthModule,
+    RequestModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -37,6 +38,7 @@ import { AuthService } from './services/auth.service';
   providers: [
     ApiService,
     AuthService,
+    RequestService,
     PersistanceService,
     provideHttpClient(withInterceptorsFromDi()),
     {
