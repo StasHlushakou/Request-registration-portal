@@ -13,6 +13,24 @@
     "signIn": "Sign in",
     "signUp": "Sign up",
     "invalidPassword": "Invalid password.",
-    "emailInvalidMessage": "Invalid email format."
+    "invalidEmailFormat": "Invalid email format."
+  },
+  "request": {
+    "theme": "Theme",
+    "description": "Description",
+    "update": "Update",
+    "delete": "Delete",
+    "view": "Show",
+    "createdAt": "Date creation",
+    "back": "Back",
+    "create": "Create request",
+    "invalidTheme": "Theme should contain from 5 to 20 characters",
+    "invalidDescription": "Description should contain to 20 characters",
+    "list": {
+      "empty": "You have not created any applications yet.",
+      "create": "Create request",
+      "update": "Update request",
+      "delete": "Delete request"
+    }
   }
 }
