@@ -27,6 +27,6 @@ export class RequestService {
   }
 
   public updateRequest(id: string, req: CreateRequestDTO): Observable<void> {
-    return this.apiService.put<void>('Request' + id, req);
+    return this.apiService.put<void>('Request/' + id, req);
   }
 }
