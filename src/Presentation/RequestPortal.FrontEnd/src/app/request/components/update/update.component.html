@@ -1,1 +1,47 @@
-update
+<div class="container page">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-md-3 col-xs-12">
+            <form [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+                <fieldset>
+
+                    <label class="form-label">{{'request.theme' | translate}}</label>
+                    <fieldset class="form-group">
+                        <input type="text"
+                               class="form-control form-control-lg"
+                               formControlName="theme" />
+                    </fieldset>
+
+                    <div [hidden]="!(requestForm.controls['theme'].invalid && requestForm.controls['theme'].touched)"
+                         class="alert alert-danger">
+                        {{'request.invalidTheme' | translate}}
+                    </div>
+
+                    <label class="form-label">{{'request.description' | translate}}</label>
+                    <fieldset class="form-group">
+                        <textarea class="form-control"
+                                  formControlName="description"
+                                  required></textarea>
+                    </fieldset>
+
+                    <div [hidden]="!(requestForm.controls['description'].invalid && requestForm.controls['description'].touched)"
+                         class="alert alert-danger">
+                        {{'request.invalidDescription' | translate}}
+                    </div>
+
+                    <button class="btn btn-lg btn-primary pull-xs-right"
+                            type="submit"
+                            [disabled]="requestForm.invalid || isRequestProcessing">
+                        {{'request.update' | translate}}
+                    </button>
+
+                    <button type="button"
+                            class="btn btn-lg btn-primary pull-xs-right"
+                            (click)="back()">
+                        {{'request.back' | translate}}
+                    </button>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
