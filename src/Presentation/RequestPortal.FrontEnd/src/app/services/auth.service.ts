@@ -5,18 +5,19 @@ import { PersistanceService } from './persistance.service';
 import { LoginRequestInterface } from '../auth/types/loginRequest.interface';
 import { TokenResponseInterface } from '../auth/types/tokenResponse.interface';
 import { RegisterRequestInterface } from '../auth/types/registerRequest.interface';
+import { Router } from '@angular/router';
 
-@Injectable()
-export class AuthService implements OnInit {
-  public isAuthenticated = false;
+@Injectable({ providedIn: 'root' })
+export class AuthService {
+  isAuthenticated = false;
   constructor(
     private apiService: ApiService,
-    private persistanceService: PersistanceService
-  ) {}
-
-  ngOnInit(): void {
-    this.isAuthenticated = false;
-    console.log('onInit');
+    private persistanceService: PersistanceService,
+    private router: Router
+  ) {
+    if (this.persistanceService.get('accessToken')) {
+      this.isAuthenticated = true;
+    }
   }
 
   public login(
@@ -54,5 +55,11 @@ export class AuthService implements OnInit {
         this.isAuthenticated = false;
       })
     );
+  }
+
+  public unauthorized(): void {
+    this.persistanceService.set('accessToken', '');
+    this.isAuthenticated = false;
+    this.router.navigate(['login']);
   }
 }

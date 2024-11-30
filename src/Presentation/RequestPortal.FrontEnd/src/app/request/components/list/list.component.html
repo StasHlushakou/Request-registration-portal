@@ -1,43 +1,51 @@
-<div *ngIf="!requests || requests.length === 0">
-    {{'request.list.empty' | translate}}
+<div class="container page">
+
+    <div *ngIf="!requests || requests.length === 0">
+        {{'request.list.empty' | translate}}
+    </div>
+
+    <button type="button"
+            class="btn btn-success"
+            (click)="create()">
+        {{'request.create' | translate}}
+    </button>
+
+    <div *ngIf="requests && requests.length > 0">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">{{'request.createdAt' | translate}}</th>
+                    <th scope="col">{{'request.theme' | translate}}</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let request of requests">
+                    <td>{{request.createdAt}}</td>
+                    <td>{{request.theme}}</td>
+                    <td>
+                        <button type="button"
+                                class="btn btn-primary"
+                                (click)="view(request.id)">
+                            {{'request.view' | translate}}
+                        </button>
+                        <button type="button"
+                                class="btn btn-warning"
+                                (click)="update(request.id)">
+                            {{'request.update' | translate}}
+                        </button>
+                        <button type="button"
+                                class="btn btn-danger"
+                                (click)="delete(request.id)">
+                            {{'request.delete' | translate}}
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
 </div>
-
-<div *ngIf="requests && requests.length > 0">
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">{{'request.theme' | translate}}</th>
-                <th scope="col">{{'request.description' | translate}}</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let request of requests">
-                <td>{{request.theme}}</td>
-                <td>{{request.description}}</td>
-                <td>
-                    <button type="button"
-                            class="btn btn-primary"
-                            (click)="view(request.id)">
-                        {{'request.view' | translate}}
-                    </button>
-                    <button type="button"
-                            class="btn btn-warning"
-                            (click)="update(request.id)">
-                        {{'request.update' | translate}}
-                    </button>
-                    <button type="button"
-                            class="btn btn-danger"
-                            (click)="delete(request.id)">
-                        {{'request.delete' | translate}}
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-
-</div>
-
 

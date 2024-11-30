@@ -30,6 +30,7 @@ namespace RequestPortal.Api.Controllers
                 Id = r.Id.ToString(),
                 Theme = r.Theme,
                 Description = r.Description,
+                CreatedAt = r.DateCreated
             }).ToList();
 
             return Ok(response);
@@ -48,6 +49,7 @@ namespace RequestPortal.Api.Controllers
                 Id = requestFromDb.Id.ToString(),
                 Theme = requestFromDb.Theme,
                 Description = requestFromDb.Description,
+                CreatedAt = requestFromDb.DateCreated
             };
 
             return Ok(response);

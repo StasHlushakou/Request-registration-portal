@@ -1,1 +1,26 @@
-view
+<div class="container page">
+    <label class="form-label">{{'request.createdAt' | translate}}</label>
+    <p class="text-left">{{request.createdAt}}</p>
+
+    <label class="form-label">{{'request.theme' | translate}}</label>
+    <p class="text-left">{{request.theme}}</p>
+
+    <label class="form-label">{{'request.description' | translate}}</label>
+    <p class="text-left">{{request.description}}</p>
+
+    <button type="button"
+            class="btn btn-primary"
+            (click)="back()">
+        {{'request.back' | translate}}
+    </button>
+    <button type="button"
+            class="btn btn-warning"
+            (click)="update(id)">
+        {{'request.update' | translate}}
+    </button>
+    <button type="button"
+            class="btn btn-danger"
+            (click)="delete(id)">
+        {{'request.delete' | translate}}
+    </button>
+</div>

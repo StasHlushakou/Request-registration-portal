@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable, catchError, map, throwError } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class ApiService {
@@ -15,11 +15,11 @@ export class ApiService {
   }
 
   private handleErrors(err: HttpErrorResponse) {
-    const router = this.injector.get(Router);
+    const authService = this.injector.get(AuthService);
 
     // The 401 (Unauthorized) status code indicates that the request has not been applied because it lacks valid authentication credentials for the target resource.
     if (err.status === 401) {
-      router.navigate(['login']);
+      authService.unauthorized();
     }
 
     // The 403 Forbidden Error is an HTTP response status code that indicates an identified client does not have proper authorization to access the requested content.
@@ -28,7 +28,7 @@ export class ApiService {
     }
 
     if (err.status === 404) {
-      console.log('403');
+      console.log('404');
     }
 
     if (err.status === 500) {

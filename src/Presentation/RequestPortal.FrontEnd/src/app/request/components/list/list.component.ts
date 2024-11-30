@@ -34,6 +34,10 @@ export class RequestListComponent implements OnInit {
       );
   }
 
+  create(): void {
+    this.router.navigate(['create']);
+  }
+
   update(id: string): void {
     this.router.navigate([id, 'update']);
   }

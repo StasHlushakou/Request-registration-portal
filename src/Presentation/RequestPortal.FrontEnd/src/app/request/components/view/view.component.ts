@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RequestDTO } from '../../types/requestDTO.interface';
+import { RequestService } from '../../../services/request.service';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'rrp-view-request',
@@ -7,15 +10,59 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./view.component.scss'],
 })
 export class ViewRequestComponent implements OnInit {
-  id: string | null = '';
+  id!: string;
+  request!: RequestDTO;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private requestService: RequestService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.initializeValues();
+    this.loadData();
   }
 
   initializeValues(): void {
-    this.id = this.route.snapshot.paramMap.get('slug');
+    this.id = this.route.snapshot.paramMap.get('id') ?? '';
+  }
+
+  loadData(): void {
+    if (this.id) {
+      this.requestService
+        .getRequestById(this.id)
+        .pipe(first())
+        .subscribe(
+          (res: RequestDTO) => {
+            this.request = res;
+          },
+          (err) => {
+            console.log('error');
+          }
+        );
+    }
+  }
+
+  update(id: string): void {
+    this.router.navigate([id, 'update']);
+  }
+
+  back(): void {
+    this.router.navigate(['']);
+  }
+
+  delete(id: string): void {
+    this.requestService
+      .deleteRequest(id)
+      .pipe(first())
+      .subscribe(
+        () => {
+          this.router.navigate(['']);
+        },
+        (err) => {
+          console.log('error');
+        }
+      );
   }
 }
