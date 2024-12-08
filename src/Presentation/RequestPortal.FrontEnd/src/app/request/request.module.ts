@@ -7,24 +7,46 @@ import { RequestListComponent } from './components/list/list.component';
 import { CreateRequestComponent } from './components/create/create.component';
 import { UpdateRequestComponent } from './components/update/update.component';
 import { ViewRequestComponent } from './components/view/view.component';
+import { GuardService } from '../shared/helpers/app.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'request',
     component: RequestListComponent,
+    canActivate: [GuardService],
+    pathMatch: 'full',
+    data: {
+      shouldBeAuthenticated: true,
+    },
   },
   {
-    path: 'create',
+    path: 'request/create',
     component: CreateRequestComponent,
+    canActivate: [GuardService],
+    pathMatch: 'full',
+    data: {
+      shouldBeAuthenticated: true,
+    },
   },
   {
-    path: ':id',
+    path: 'request/:id',
     component: ViewRequestComponent,
+    canActivate: [GuardService],
+    pathMatch: 'full',
+    data: {
+      shouldBeAuthenticated: true,
+    },
   },
   {
-    path: ':id/update',
+    path: 'request/:id/update',
     component: UpdateRequestComponent,
+    canActivate: [GuardService],
+    pathMatch: 'full',
+    data: {
+      shouldBeAuthenticated: true,
+    },
   },
+  { path: '**', redirectTo: 'request' },
 ];
 
 @NgModule({

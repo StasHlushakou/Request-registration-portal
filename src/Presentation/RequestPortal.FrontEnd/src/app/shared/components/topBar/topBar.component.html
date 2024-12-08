@@ -4,7 +4,7 @@
         <button (click)="useLanguage('ru')">{{'topBar.ru' | translate}}</button>
     </div>
     <div class="col-md-auto"></div>
-    <a class="nav-link mx-3" href="auth/login" [hidden]="isAuthenticated">{{'topBar.signIn' | translate}}</a>
-    <a class="nav-link mx-3" href="auth/register" [hidden]="isAuthenticated">{{'topBar.signUp' | translate}}</a>
+    <button class="btn btn-outline-success mx-3" type="button" (click)="login()" [hidden]="isAuthenticated">{{'topBar.signIn' | translate}}</button>
+    <button class="btn btn-outline-success mx-3" type="button" (click)="register()" [hidden]="isAuthenticated">{{'topBar.signUp' | translate}}</button>
     <button class="btn btn-outline-success mx-3" type="button" (click)="logout()" [hidden]="!isAuthenticated">{{'topBar.logout' | translate}}</button>
 </nav>

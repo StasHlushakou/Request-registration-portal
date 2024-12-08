@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (res: TokenResponseInterface) => {
-          this.router.navigate(['/']);
+          this.router.navigate(['request']);
         },
         (err) => {
           this.isPasswordInvalid = true;

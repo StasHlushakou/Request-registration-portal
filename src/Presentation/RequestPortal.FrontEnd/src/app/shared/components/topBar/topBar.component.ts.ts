@@ -30,11 +30,19 @@ export class TopBarComponent {
       .pipe(first())
       .subscribe(
         () => {
-          this.router.navigate(['/auth/login']);
+          this.router.navigate(['auth', 'login']);
         },
         (err) => {
           console.log('error on logout');
         }
       );
+  }
+
+  login(): void {
+    this.router.navigate(['auth', 'login']);
+  }
+
+  register(): void {
+    this.router.navigate(['auth', 'register']);
   }
 }

@@ -45,11 +45,11 @@ export class ViewRequestComponent implements OnInit {
   }
 
   update(id: string): void {
-    this.router.navigate([id, 'update']);
+    this.router.navigate(['request', id, 'update']);
   }
 
   back(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['request']);
   }
 
   delete(id: string): void {
@@ -58,7 +58,7 @@ export class ViewRequestComponent implements OnInit {
       .pipe(first())
       .subscribe(
         () => {
-          this.router.navigate(['']);
+          this.router.navigate(['request']);
         },
         (err) => {
           console.log('error');

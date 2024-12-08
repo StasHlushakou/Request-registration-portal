@@ -60,6 +60,6 @@ export class AuthService {
   public unauthorized(): void {
     this.persistanceService.set('accessToken', '');
     this.isAuthenticated = false;
-    this.router.navigate(['login']);
+    this.router.navigate(['auth', 'login']);
   }
 }

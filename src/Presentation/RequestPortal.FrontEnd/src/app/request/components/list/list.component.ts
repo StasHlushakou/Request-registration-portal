@@ -35,15 +35,15 @@ export class RequestListComponent implements OnInit {
   }
 
   create(): void {
-    this.router.navigate(['create']);
+    this.router.navigate(['request', 'create']);
   }
 
   update(id: string): void {
-    this.router.navigate([id, 'update']);
+    this.router.navigate(['request', id, 'update']);
   }
 
   view(id: string): void {
-    this.router.navigate([id]);
+    this.router.navigate(['request', id]);
   }
 
   delete(id: string): void {

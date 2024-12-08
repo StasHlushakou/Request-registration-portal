@@ -81,7 +81,7 @@ export class UpdateRequestComponent implements OnInit {
       .pipe(first())
       .subscribe(
         () => {
-          this.router.navigate(['/']);
+          this.router.navigate(['request']);
         },
         (err) => {
           this.isRequestProcessing = false;
@@ -91,6 +91,6 @@ export class UpdateRequestComponent implements OnInit {
   }
 
   back(): void {
-    this.router.navigate(['']);
+    this.router.navigate(['request']);
   }
 }
