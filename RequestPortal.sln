@@ -6,8 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C4A1CDE3-F87A-4EE9-A5CB-CABC94C7695C}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
-		docker-compose.yml = docker-compose.yml
 		cmd commands.txt = cmd commands.txt
+		docker-compose.yml = docker-compose.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
@@ -32,6 +32,10 @@ EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "RequestPortal.FrontEnd", "src\Presentation\RequestPortal.FrontEnd\RequestPortal.FrontEnd.esproj", "{F889418A-E8CC-4761-A96B-024EA9142ABA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestPortal.Contracts", "src\Presentation\RequestPortal.Contracts\RequestPortal.Contracts.csproj", "{1E49AC56-4D17-44B3-8C4F-5CB120118504}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9E16CB6E-ED61-4C66-A691-354A28FF459E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean.Architecture.UnitTests", "tests\Clean.Architecture.UnitTests\Clean.Architecture.UnitTests.csproj", "{7562504F-C6D3-48E7-8604-DBF276D91E40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,10 @@ Global
 		{1E49AC56-4D17-44B3-8C4F-5CB120118504}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E49AC56-4D17-44B3-8C4F-5CB120118504}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E49AC56-4D17-44B3-8C4F-5CB120118504}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7562504F-C6D3-48E7-8604-DBF276D91E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7562504F-C6D3-48E7-8604-DBF276D91E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7562504F-C6D3-48E7-8604-DBF276D91E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7562504F-C6D3-48E7-8604-DBF276D91E40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +92,8 @@ Global
 		{53F94A3D-F727-4599-8BAD-16EB76C29A84} = {6C6E0414-EE19-4C31-9742-50799E66336C}
 		{F889418A-E8CC-4761-A96B-024EA9142ABA} = {6C6E0414-EE19-4C31-9742-50799E66336C}
 		{1E49AC56-4D17-44B3-8C4F-5CB120118504} = {6C6E0414-EE19-4C31-9742-50799E66336C}
+		{9E16CB6E-ED61-4C66-A691-354A28FF459E} = {E9E5B73E-F590-402A-940B-90655D2C64DE}
+		{7562504F-C6D3-48E7-8604-DBF276D91E40} = {9E16CB6E-ED61-4C66-A691-354A28FF459E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6ADF2838-D625-4541-9C89-715590811A5A}
