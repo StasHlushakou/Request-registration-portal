@@ -3,14 +3,14 @@ using RequestPortal.Domain.Entities;
 
 namespace Clean.Architecture.UnitTests.Domain
 {
-    public class UserConstructor
+    public class User_Test
     {
         string name = "name";
         string email = "email";
         string password = "password";
         User entity;
 
-        public UserConstructor()
+        public User_Test()
         {
             entity = new User(name, email, password);
         }

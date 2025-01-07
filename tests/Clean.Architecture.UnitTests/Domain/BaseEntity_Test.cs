@@ -3,16 +3,16 @@ using RequestPortal.Domain.Entities;
 
 namespace Clean.Architecture.UnitTests.Domain
 {
-    public class BaseEntityConstructor
+    public class BaseEntity_Test
     {
         DateTime dateBefore;
         BaseEntity entity;
         DateTime dateAfter;
 
-        public BaseEntityConstructor()
+        public BaseEntity_Test()
         {
             dateBefore = DateTime.UtcNow;
-            entity = new Request();
+            entity = new BaseEntityT();
             dateAfter = DateTime.UtcNow;
         }
 
@@ -31,5 +31,11 @@ namespace Clean.Architecture.UnitTests.Domain
 
             Assert.True(entity.DateUpdated < dateAfter);
         }
+    }
+
+    public class BaseEntityT : BaseEntity
+    {
+        public BaseEntityT() : base()
+        {}
     }
 }
